@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cart - Luxe Fleur</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: white;
+            font-family: "Prata", serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        #header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            padding: 28px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        #brand-name {
+            font-size: 28px;
+            text-align: center;
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+
+        .header-left, .header-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        .header-link {
+            text-decoration: none;
+            color: #000;
+            font-size: 16px;
+            position: relative;
+        }
+
+        .header-link:hover {
+            color: #333;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 1001;
+            min-width: 200px;
+        }
+
+        .header-link:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 20px 20px;
+            color: #000;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f0f0f0;
+        }
+
+        .main-content {
+            margin-top: 100px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .cart-item div {
+            flex: 1;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .cart-total {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .checkout-btn {
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .checkout-btn:hover {
+            background-color: #333;
+        }
+
+        footer {
+            background-color: #f8f8f8;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 14px;
+            border-top: 1px solid #ddd;
+            margin-top: 50px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .footer-section {
+            margin-bottom: 20px;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .payment-option {
+            margin-bottom: 10px;
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .payment-option:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="header-left">
+            <div class="header-link">
+                Menu
+                <div class="dropdown-menu">
+                    <a href="index.html">Back to Home</a>
+                    <a href="womenswear.html">Women's Wear</a>
+                    <a href="menswear.html">Men's Wear</a>
+                    <a href="footwear.html">Footwear</a>
+                    <a href="accessories.html">Accessories</a>
+                </div>
+            </div>
+            <a href="#" class="header-link">Search</a>
+        </div>
+        <div id="brand-name"><b>LUXE FLEUR</b></div>
+        <div class="header-right">
+            <a href="mycart.html" class="header-link">My Cart</a>
+            <a href="index.html#login" class="header-link">Log-in</a>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <h2>My Cart</h2>
+        <div id="cart-items"></div>
+        <div class="cart-total" id="cart-total">Total: Php 0</div>
+        <button class="checkout-btn" onclick="openPaymentOptions()">Checkout</button>
+    </main>
+
+    <!-- Modal for payment options -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <h3>Select Payment Method</h3>
+            <div class="payment-option" onclick="checkout('Cash on Delivery')">Cash on Delivery</div>
+            <div class="payment-option" onclick="checkout('GCash')">GCash</div>
+            <div class="payment-option" onclick="checkout('Paypal')">Paypal</div>
+            <div class="payment-option" onclick="checkout('Debit')">Debit Card</div>
+            <div class="payment-option" onclick="checkout('Credit')">Credit Card</div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-section">
+            <h3>LUXE FLEUR</h3>
+            <p><i>Your destination for timeless elegance and fashion-forward styles.</i></p>
+        </div>
+        <div class="footer-links">
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Returns & Exchanges</a>
+            <a href="#">FAQs</a>
+        </div>
+        <div class="footer-section">
+            <p>&copy; 2024 Luxe Fleur. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function loadCartItems() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const cartItemsContainer = document.getElementById('cart-items');
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+
+            cartItems.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+
+                const cartItemElement = document.createElement('div');
+                cartItemElement.className = 'cart-item';
+                cartItemElement.innerHTML = `
+                    <div>${item.name}</div>
+                    <div>Php ${item.price}</div>
+                    <div>${item.quantity}</div>
+                    <div>Php ${itemTotal}</div>
+                `;
+                cartItemsContainer.appendChild(cartItemElement);
+            });
+
+            document.getElementById('cart-total').innerText = `Total: Php ${total}`;
+        }
+
+        function checkout(paymentMethod) {
+            alert(`Thank you for your purchase! Payment method: ${paymentMethod}`);
+            localStorage.removeItem('cartItems');
+            loadCartItems();
+            closeModal();
+        }
+
+        function openPaymentOptions() {
+            const modal = document.getElementById('paymentModal');
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('paymentModal');
+            modal.style.display = 'none';
+        }
+
+        document.addEventListener('DOMContentLoaded', loadCartItems);
+    </script>
+</body>
+</html>

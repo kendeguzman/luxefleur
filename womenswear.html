@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Wear - Luxe Fleur</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: white;
+            font-family: "Prata", serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        #header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            padding: 28px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        #brand-name {
+            font-size: 28px;
+            text-align: center;
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+
+        .header-left, .header-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        .header-link {
+            text-decoration: none;
+            color: #000;
+            font-size: 16px;
+            position: relative;
+        }
+
+        .header-link:hover {
+            color: #333;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 1001;
+        }
+
+        .header-link:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 20px 20px;
+            color: #000;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f0f0f0;
+        }
+
+        .main-content {
+            margin-top: 100px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .product {
+            display: inline-block;
+            margin: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            width: 300px;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .product-price {
+            font-size: 16px;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .product input[type="number"] {
+            width: 50px;
+            padding: 5px;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .product button {
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .product button:hover {
+            background-color: #333;
+        }
+
+        footer {
+            background-color: #f8f8f8;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 14px;
+            border-top: 1px solid #ddd;
+            margin-top: 50px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .footer-section {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="header-left">
+            <div class="header-link">
+                Menu
+                <div class="dropdown-menu">
+                    <a href="index.html">Back to Home</a>
+                    <a href="womenswear.html">Women's Wear</a>
+                    <a href="menswear.html">Men's Wear</a>
+                    <a href="footwear.html">Footwear</a>
+                    <a href="accessories.html">Accessories</a>
+                </div>
+            </div>
+            <a href="#" class="header-link">Search</a>
+        </div>
+        <div id="brand-name"><b>LUXE FLEUR</b></div>
+        <div class="header-right">
+            <a href="mycart.html" class="header-link">My Cart</a>
+            <a href="index.html#login" class="header-link">Log-in</a>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <h2>Women's Wear</h2>
+        
+        <div class="product">
+            <img src="womenswear1.png" alt="Dress 1">
+            <div class="product-info">
+                <div class="product-title">Elegant Evening Dress</div>
+                <div class="product-price">Php 7,490</div>
+                <input type="number" id="quantity1" min="0" value="0">
+            </div>
+        </div>
+        
+        <div class="product">
+            <img src="womenswear2.png" alt="Dress 2">
+            <div class="product-info">
+                <div class="product-title">Chic Summer Dress</div>
+                <div class="product-price">Php 3,120</div>
+                <input type="number" id="quantity2" min="0" value="0">
+            </div>
+        </div>
+        
+        <div class="product">
+            <img src="womenswear3.png" alt="Dress 3">
+            <div class="product-info">
+                <div class="product-title">Casual Day Dress</div>
+                <div class="product-price">Php 4,750</div>
+                <input type="number" id="quantity3" min="0" value="0">
+            </div>
+        </div>
+
+        <br><button onclick="addToCart()">Add All to Cart</button>
+    </main>
+
+    <footer>
+        <div class="footer-section">
+            <h3>LUXE FLEUR</h3>
+            <p><i>Your destination for timeless elegance and fashion-forward styles.</i></p>
+        </div>
+        <div class="footer-links">
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Returns & Exchanges</a>
+            <a href="#">FAQs</a>
+        </div>
+        <div class="footer-section">
+            <p>&copy; 2024 Luxe Fleur. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function addToCart() {
+            const products = document.querySelectorAll('.product');
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+            products.forEach(product => {
+                const productName = product.querySelector('.product-title').textContent.trim();
+                const productPrice = parseFloat(product.querySelector('.product-price').textContent.replace('Php ', '').replace(',', ''));
+                const quantity = parseInt(product.querySelector('input[type="number"]').value);
+
+                if (quantity > 0) {
+                    const existingItemIndex = cartItems.findIndex(item => item.name === productName);
+
+                    if (existingItemIndex !== -1) {
+                        cartItems[existingItemIndex].quantity += quantity;
+                    } else {
+                        cartItems.push({ name: productName, price: productPrice, quantity: quantity });
+                    }
+                }
+            });
+
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            alert('All items have been added to your cart.');
+        }
+    </script> 
+</body>
+</html>
