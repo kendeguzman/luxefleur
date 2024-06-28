@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Fleur</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: white;
+            font-family: "Prata", serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        #header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            padding: 28px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        #brand-name {
+            font-size: 28px;
+            text-align: center;
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+
+        .header-left, .header-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        .header-link {
+            text-decoration: none;
+            color: #000;
+            font-size: 16px;
+            position: relative;
+        }
+
+        .header-link:hover {
+            color: #333;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 1001;
+        }
+
+        .header-link:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 20px 20px;
+            color: #000;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f0f0f0;
+        }
+
+        .main-image {
+            text-align: center;
+            width: 100%;
+            margin-top: 80px;
+        }
+
+        #row-two, #row-three {
+            text-align: center;
+            padding: 45px 20px;
+            font-size: 30px;
+        }
+
+        #row-four{
+            text-align: center;
+            font-size: 30px;
+            padding-top: 35px;
+        }
+
+        .models-table {
+            margin: auto;
+            width: 80%;
+        }
+
+        .models-table table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 20px;
+        }
+
+        .models-table img {
+            width: 100%;
+            height: auto;
+        }
+
+        .models-table a:hover {
+            text-decoration: underline;
+        }
+
+        .header-link {
+            text-decoration: none;
+            color: #000;
+            font-size: 16px;
+        }
+
+        td, th {
+            width: 25%;
+        }
+
+        p {
+            font-size: 15px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #f8f8f8;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 14px;
+            border-top: 1px solid #ddd;
+            margin-top: 50px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .footer-section {
+            margin-bottom: 20px;
+        }
+
+        .login-section {
+            background-color: #f0f0f0;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 16px;
+            margin-top: 50px;
+        }
+
+        .login-section input[type="text"],
+        .login-section input[type="password"] {
+            width: 60%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-section button {
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-section button:hover {
+            background-color: #333;
+        }
+
+        .login-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            padding: 0 20%;
+        }
+
+        .login-links a {
+            text-decoration: none;
+            color: #000;
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="header-left">
+            <div class="header-link">
+                Menu
+                <div class="dropdown-menu">
+                    <a href="index.html">Back to Home</a>
+                    <a href="womenswear.html">Women's Wear</a>
+                    <a href="menswear.html">Men's Wear</a>
+                    <a href="footwear.html">Footwear</a>
+                    <a href="accessories.html">Accessories</a>
+                </div>
+            </div>
+            <a href="#" class="header-link">Search</a>
+        </div>
+        <div id="brand-name"><b>LUXE FLEUR</b></div>
+        <div class="header-right">
+            <a href="mycart.html" class="header-link">My Cart</a>
+            <a href="#login" class="header-link">Log-in</a>
+        </div>
+    </header>
+    
+    <main>
+        <img src="main-image.png" class="main-image" alt="Main Image">
+        
+        <section id="row-two">
+            <p style="font-size: 30px;">explore our style</p>
+            <p>discover elegance redefined. embrace the latest trends with our timeless pieces.</p>
+        </section>
+        
+        <section class="models-table">
+            <table>
+                <tr>
+                    <th><img src="1.png" alt="Model 1"></th>
+                    <th><img src="2.png" alt="Model 2"></th>
+                    <th><img src="3.png" alt="Model 3"></th>
+                    <th><img src="4.png" alt="Model 4"></th>
+                </tr>
+                <tr>
+                    <td><img src="5.png" alt="Model 5"></td>
+                    <td><img src="6.png" alt="Model 6"></td>
+                    <td><img src="7.png" alt="Model 7"></td>
+                    <td><img src="8.png" alt="Model 8"></td>
+                </tr>
+            </table>
+        </section>
+        
+        <section id="row-four">
+            <p style="font-size: 30px;">categories</p>
+            <p>here are the categories of our clothing.</p>
+        </section>
+        
+        <img src="main-image2.png" class="main-image" alt="Main Image 2">
+        
+        <section class="models-table" style="padding-top: 100px;">
+            <table>
+                <tr>
+                    <th><img src="2.1.png" alt="Women's Wear"></th>
+                    <th><img src="2.2.png" alt="Men's Wear"></th>
+                    <th><img src="2.3.png" alt="Footwear"></th>
+                    <th><img src="2.4.png" alt="Accessories"></th>
+                </tr>
+                <tr>
+                    <td><p><a href="womenswear.html" class="header-link">Women's Wear</a></p></td>
+                    <td><p><a href="menswear.html" class="header-link">Men's Wear</a></p></td>
+                    <td><p><a href="footwear.html" class="header-link">Footwear</a></p></td>
+                    <td><p><a href="accessories.html" class="header-link">Accessories</a></p></td>
+                </tr>
+            </table>
+        </section>
+        
+        <section id="row-four">
+            <p style="font-size: 30px;">our services</p>
+            <p>personalized styling, gifting, and more for a seamless shopping experience.</p>
+        </section>
+        
+        <section class="models-table" style="padding-top: 50px;">
+            <table>
+                <tr>
+                    <th><img src="9.png" alt="Personalization"></th>
+                    <th><img src="10.png" alt="Art of Gifting"></th>
+                    <th><img src="11.png" alt="Services"></th>
+                </tr>
+                <tr>
+                    <td><p><a href="#" class="header-link">Personalization</a></p></td>
+                    <td><p><a href="#" class="header-link">Art of Gifting</a></p></td>
+                    <td><p><a href="#" class="header-link">Services</a></p></td>
+                </tr>
+            </table>
+        </section>
+    </main>
+
+    <section id="login" class="login-section">
+        <h2>Your Account</h2>
+        <form>
+            <input type="text" name="email" placeholder="Email" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <div class="login-links">
+                <a href="#">Forgot Password?</a>
+                <a href="#">Don't have an account yet? Sign Up</a>
+            </div>
+            <a href="index.html"></a><button type="submit">Login</button></a>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-section">
+            <h3>LUXE FLEUR</h3>
+            <p><i>Your destination for timeless elegance and fashion-forward styles.</i></p>
+        </div>
+        <div class="footer-links">
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Returns & Exchanges</a>
+            <a href="#">FAQs</a>
+        </div>
+        <div class="footer-section">
+            <p>&copy; 2024 Luxe Fleur. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
